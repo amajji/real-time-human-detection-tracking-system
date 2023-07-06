@@ -158,9 +158,9 @@ def decision(image_imread, box_coord):
 
 @app.get('/')
 def window_princip(request: Request):
-    return templates.TemplateResponse('base_page.html', context= {"request": request})
+    return templates.TemplateResponse('first_page.html', context= {"request": request})
 
-"""
+
 @smart_inference_mode()
 @app.websocket('/ws')
 async def run(websocket: WebSocket,
@@ -322,7 +322,7 @@ async def run(websocket: WebSocket,
                             # send the output in the websocket to the client
                             await websocket.send_bytes(encoded_img.tobytes())
 
-"""
+
 
 
 
@@ -349,7 +349,7 @@ async def uploader(request: Request, file_1: UploadFile = File(...)):
         # save results
         results.save(save_dir=parent_path + "/yolov5/runs/detect/")
 
-        return templates.TemplateResponse('base_download_result.html', context= {"request": request})
+        return templates.TemplateResponse('second_page.html', context= {"request": request})
 
 
 
@@ -366,8 +366,8 @@ async def download(request: Request):
 
 @app.get('/Acceuil')
 def Acceuil(request: Request):
-    
-    return templates.TemplateResponse('base_page.html', context={"request": request})
+
+    return templates.TemplateResponse('first_page.html', context={"request": request})
 
 
 
