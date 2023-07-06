@@ -59,6 +59,7 @@
             </div>
           </div>
             <input type="submit" value="Analyze" id="myBtn_origin" style = '   display:flex;  width : 200px; height: 40px; margin:5% auto; ' />
+            <button type="button" id="myBtn" onclick= "window.location.href='{{ url_for('download') }}';"  value="Download" style = 'display: block; left: 50%; width : 200px; height: 40px; margin: 2% auto; vertical-align: middle; text-align: center;'> Download </button>
 
         </form>
 
@@ -103,6 +104,9 @@
 
  <head>
                 <script>
+
+
+
 
 
                     var btn_connect = document.getElementById('first_button');

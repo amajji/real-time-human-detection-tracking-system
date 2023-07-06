@@ -15,26 +15,23 @@
 ############################################################################################################################
 #                                                 Packages                                                                 #
 ############################################################################################################################
+
 import sys
 import os
-sys.path.append(os.path.normpath(os.path.join(os.getcwd(), os.pardir)) )
+parent_path = os.path.normpath(os.path.join(os.getcwd(), os.pardir))
+sys.path.append(parent_path)
 import uvicorn
 import numpy as np
 from fastapi import File, UploadFile
-
 from fastapi.responses import HTMLResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi import FastAPI, Request, WebSocket, WebSocketDisconnect
 from PIL import Image
-
-
 import torch
 from shutil import rmtree
 import sys
 from pathlib import Path
-
-
 from yolov5.utils.dataloaders import IMG_FORMATS, VID_FORMATS, LoadImages, LoadScreenshots, LoadStreams
 from yolov5.utils.general import (LOGGER, Profile, check_file, check_img_size, check_imshow, check_requirements,
                            colorstr, cv2,
@@ -86,10 +83,10 @@ def decision(image_imread, box_coord):
         - box_coord : list of coordinates of the bounding box
         returns :
             - coord_centre_box : coordinates of the centred bounding box
-            - output : output decision :
-                - turn right : if the person detected is in the right of the camera
-                - turn left : if the person detected is in the left of the camera
-                - No change : the person detected is in the screen center
+            - output decision :
+                - turn right : if the person detected is on the right of the camera
+                - turn left : if the person detected is on the left of the camera
+                - No change : the person detected is on the screen center
     """
 
     # coordinates of the bounding box
@@ -146,13 +143,13 @@ def decision(image_imread, box_coord):
     # If the person detected is on the left of the camera
     elif x_min <= x_min_supp - 15:
         turn_left = True
-        trun_right = False
+        turn_right = False
         output = " TURN LEFT -- "
 
     # The person detected is on the center of the camera
     elif x_min_supp - 15 < x_min < x_min_supp + 15:
         turn_left = False
-        trun_right = False
+        turn_right = False
         output = " NO CHANGE -- "
 
     return coord_centre_box, output
@@ -163,7 +160,7 @@ def decision(image_imread, box_coord):
 def window_princip(request: Request):
     return templates.TemplateResponse('base_page.html', context= {"request": request})
 
-
+"""
 @smart_inference_mode()
 @app.websocket('/ws')
 async def run(websocket: WebSocket,
@@ -318,21 +315,14 @@ async def run(websocket: WebSocket,
                             # Stream results
                             im0 = annotator.result()
 
-                            # encode the annotated image to
+                            # encode the annotated image
                             _, encoded_img = cv2.imencode('.png', im0)
                             #encoded_image = base64.b64encode(encoded_img).decode("utf-8")
 
-                            # send the output
+                            # send the output in the websocket to the client
                             await websocket.send_bytes(encoded_img.tobytes())
 
-
-
-
-
-
-
-
-
+"""
 
 
 
@@ -343,14 +333,10 @@ async def uploader(request: Request, file_1: UploadFile = File(...)):
 
         # get the uploaded image
         img = Image.open(file_1.file)
-
-        dir_path = os.path.dirname(os.path.realpath(__file__))
-        print("---------- ><>>>> ", dir_path)
-
         print("image's shape -- : ", np.array(img).shape)
 
         # delete all folders of runs/detect
-        path_exp = "./runs/detect/"
+        path_exp = parent_path + "/yolov5/runs/"
         _del = [rmtree(path) for path in Path(path_exp).glob("**/*")]
 
         # get the result of the model
@@ -361,9 +347,9 @@ async def uploader(request: Request, file_1: UploadFile = File(...)):
         results.print()
 
         # save results
-        results.save()
+        results.save(save_dir=parent_path + "/yolov5/runs/detect/")
 
-        return templates.TemplateResponse('base_page.html', context= {"request": request})
+        return templates.TemplateResponse('base_download_result.html', context= {"request": request})
 
 
 
@@ -372,15 +358,15 @@ async def download(request: Request):
     # filename of the output file
     filename = "resultat_finale.jpg"
 
-    # path to the predicted image
-    #path = "./runs/detect/exp/image0.jpg"
-    path = "/home/majji/Documents/project_github/person detection yolov5/yolov5_master/yolov5/runs/detect/exp/image0.jpg"
+    # path to the result
+    download_path = parent_path + "/yolov5/runs/detect/image0.jpg"
 
-    return FileResponse(path, filename=filename)
+    return FileResponse(download_path, filename=filename)
 
 
 @app.get('/Acceuil')
 def Acceuil(request: Request):
+    
     return templates.TemplateResponse('base_page.html', context={"request": request})
 
 
