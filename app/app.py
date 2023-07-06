@@ -9,59 +9,32 @@
 ############################################################################################################################
 
 
-# importing sys
-import sys
-import os
-
-import sys
-# the mock-0.3.1 dir contains testcase.py, testutils.py & mock.py
-sys.path.append('/home/majji/Documents/project_github/person detection yolov5/yolov5_master/')
 
 
-
-#sys.path.append(r'/home/majji/Documents/project_github/person detection yolov5/yolov5_master/yolov5/')
-
-
-
-# adding Folder_2/subfolder to the system path
-#sys.path.insert(0, '/home/majji/Documents/project_github/person detection yolov5/yolov5-master')
 
 ############################################################################################################################
 #                                                 Packages                                                                 #
 ############################################################################################################################
+import sys
+import os
+sys.path.append(os.path.normpath(os.path.join(os.getcwd(), os.pardir)) )
 import uvicorn
 import numpy as np
-import os
-from fastapi import FastAPI, Request
 from fastapi import File, UploadFile
 
-from fastapi import Depends, FastAPI, Form
 from fastapi.responses import HTMLResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from fastapi.responses import StreamingResponse
-from werkzeug.utils import secure_filename
-
 from fastapi import FastAPI, Request, WebSocket, WebSocketDisconnect
-import cv2
-import torch
 from PIL import Image
-import base64
-import os
-import sys
-from pathlib import Path
-import torch
 
-import pathlib
+
+import torch
 from shutil import rmtree
 import sys
-
-import sys
 from pathlib import Path
 
-#from models.common import DetectMultiBackend
 
-#from yolov5.utils.dataloaders import IMG_FORMATS, VID_FORMATS, LoadImages, LoadScreenshots, LoadStreams
 from yolov5.utils.dataloaders import IMG_FORMATS, VID_FORMATS, LoadImages, LoadScreenshots, LoadStreams
 from yolov5.utils.general import (LOGGER, Profile, check_file, check_img_size, check_imshow, check_requirements,
                            colorstr, cv2,
@@ -69,7 +42,6 @@ from yolov5.utils.general import (LOGGER, Profile, check_file, check_img_size, c
                            xyxy2xywh)
 from yolov5.utils.plots import Annotator, colors, save_one_box
 from yolov5.utils.torch_utils import select_device, smart_inference_mode
-
 from yolov5.models.common import DetectMultiBackend
 
 ##########################################################################################################################
@@ -94,17 +66,10 @@ model = torch.hub.load("../yolov5", 'custom', path="../yolov5/yolov5s.pt", sourc
 # detect only persons
 model.classes = 0
 
+# model is finished to load
 print("model loeaded ... ")
 
-# define a stream variable
-global stream
-stream = False
 
-
-import os
-
-path_last = os.getcwd()
-print("== ===== ==== > ", path_last)
 
 # FILE = Path(__file__).resolve()
 # ROOT = FILE.parents[0]  # YOLOv5 root directory
