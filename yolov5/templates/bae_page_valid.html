@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title> </title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
+
+
+<link rel="stylesheet" href="{{ url_for('static', path='css/base_page.css') }}"  />
+
+
+
+
+    <meta charset="utf-8">
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+
+
+
+</head>
+<!-- <body style="background: rgba(0, 0, 170, 0.1);"> -->
+<body>
+
+
+
+
+
+
+    <div style="width:100%; height: 100%;">
+        <div style="  float:left; display:inline-block; width: 50%; height: 100%; border: dashed 2px black; margin:0 auto;" class="div1">
+
+
+        <form class="file-container"  action="/uploader_" method = "POST" enctype = "multipart/form-data" style=" text-align:center; margin:0px auto; left: 0; background-color:whitesmoke;  "  >
+
+          <div class="file-overlay"  ></div>
+          <div class="file-wrapper"  ><input class="file-input" id="file_1" name = "file_1" type="file" />
+            <div class="file-content" >
+              <h1>Export PDF with a custom font</h1>
+              <h2 class="subheader">using jsPDF plugin </h2>
+              <div class="file-infos">
+                <p class="file-icon"><i class="fas fa-folder-open fa-3x"></i><span class="icon-shadow"></span>
+                <div class="upload-text"  ><span class="has-drag">Drag & Drop your file here</span><span class="bold">OR</span><span> <button>Click to upload</button></span></div>
+                </p>
+
+              </div>
+
+              <p class="file-name" id="js-file-name">No file selected</p>
+            </div>
+            <input type="submit" value="Analyser" style = '   display:flex;  width : 40%; height: 10%; margin:10% auto; ' />
+
+          </div>
+
+        </form>
+
+        </div>
+
+
+
+
+
+
+
+
+        <form  style="float:right; display:inline-block; width: 50%; height: 100%; border: dashed 2px black; margin:0% auto; "  class="div2">
+            <div style="   width: 50%; height: 40%; border: dashed 2px red; margin: 20% auto auto; background-color: black" >
+
+                <img id="frame1" src="" style="   width: 100%; height: 100%; "   >
+
+            </div>
+
+            <input onclick="DoSubmit()" type="button"   id = "first_button" value="Start" class="btn first"   style = '  display:flex;   width : 21%; height: 6%; margin:10% auto;'   />
+        </form>
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+</body>
+
+ <head>
+                <script>
+                function DoSubmit(){
+                        let ws = new WebSocket("ws://localhost:8000/ws");
+                        let image = document.getElementById("frame1");
+                        image.onload = function(){
+                            URL.revokeObjectURL(this.src); // release the blob URL once the image is loaded
+                        }
+                        ws.onmessage = function(event) {
+                            image.src = URL.createObjectURL(event.data);
+
+                        }
+
+                };
+                </script>
+
+
+</head>
+
+</html>
+

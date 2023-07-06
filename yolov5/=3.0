@@ -1,0 +1,2 @@
+Requirement already satisfied: jinja2 in /home/majji/python_webapp/lib/python3.10/site-packages (3.1.2)
+Requirement already satisfied: MarkupSafe>=2.0 in /home/majji/python_webapp/lib/python3.10/site-packages (from jinja2) (2.1.2)
