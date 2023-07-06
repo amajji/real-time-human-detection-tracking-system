@@ -11,9 +11,20 @@
 
 # importing sys
 import sys
+import os
+
+import sys
+# the mock-0.3.1 dir contains testcase.py, testutils.py & mock.py
+sys.path.append('/home/majji/Documents/project_github/person detection yolov5/yolov5_master/')
+
+
+
+#sys.path.append(r'/home/majji/Documents/project_github/person detection yolov5/yolov5_master/yolov5/')
+
+
 
 # adding Folder_2/subfolder to the system path
-sys.path.insert(0, '/home/majji/Documents/project_github/person detection yolov5/yolov5-master')
+#sys.path.insert(0, '/home/majji/Documents/project_github/person detection yolov5/yolov5-master')
 
 ############################################################################################################################
 #                                                 Packages                                                                 #
@@ -42,28 +53,31 @@ from pathlib import Path
 import torch
 
 import pathlib
-print(pathlib.Path().resolve())
-
 from shutil import rmtree
 import sys
-import os
-#SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-#sys.path.append(os.path.dirname(SCRIPT_DIR))
 
+import sys
+from pathlib import Path
 
-from models.common import DetectMultiBackend
+#from models.common import DetectMultiBackend
 
-from utils.dataloaders import IMG_FORMATS, VID_FORMATS, LoadImages, LoadScreenshots, LoadStreams
-from utils.general import (LOGGER, Profile, check_file, check_img_size, check_imshow, check_requirements,
+#from yolov5.utils.dataloaders import IMG_FORMATS, VID_FORMATS, LoadImages, LoadScreenshots, LoadStreams
+from yolov5.utils.dataloaders import IMG_FORMATS, VID_FORMATS, LoadImages, LoadScreenshots, LoadStreams
+from yolov5.utils.general import (LOGGER, Profile, check_file, check_img_size, check_imshow, check_requirements,
                            colorstr, cv2,
                            increment_path, non_max_suppression, print_args, scale_boxes, strip_optimizer,
                            xyxy2xywh)
-from utils.plots import Annotator, colors, save_one_box
-from utils.torch_utils import select_device, smart_inference_mode
+from yolov5.utils.plots import Annotator, colors, save_one_box
+from yolov5.utils.torch_utils import select_device, smart_inference_mode
+
+from yolov5.models.common import DetectMultiBackend
 
 ##########################################################################################################################
 #                                                 Main Code                                                              #
 ##########################################################################################################################
+
+
+
 
 # Initialize Fastapi app
 app = FastAPI()
@@ -75,7 +89,7 @@ app.mount("/static", StaticFiles(directory="static"), name = "static")
 
 
 # load yolov5 model
-model = torch.hub.load("./", 'custom', path="yolov5s.pt", source='local')
+model = torch.hub.load("../yolov5", 'custom', path="../yolov5/yolov5s.pt", source='local')
 
 # detect only persons
 model.classes = 0
