@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title> </title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
+
+
+<link rel="stylesheet" href="{{ url_for('static', path='css/base_page.css') }}"  />
+
+
+
+
+    <meta charset="utf-8">
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+
+
+
+</head>
+<!-- <body style="background: rgba(0, 0, 170, 0.1);"> -->
+<body>
+
+
+
+    <img src="{{ url_for('static',path='css/yolov5_logo.png') }}" style = 'display:flex;   width : 20%; height: 20%; margin:10px auto; border-radius: 10%; '>
+
+
+    <div style="width:100%; height: 80%;">
+        <div style="  float:left; display:inline-block; width: 50%; height: 100%; border-right: thick double #32a1ce; margin:0% auto;" class="div1">
+        <form class="file-container"  action="/uploader_" method = "POST" enctype = "multipart/form-data" style=" text-align:center; margin:0px auto; left: 0; background-color:whitesmoke;  "  >
+          <div class="file-overlay"  ></div>
+          <div class="file-wrapper"  ><input class="file-input" id="file_1" name = "file_1" type="file" />
+            <div class="file-content" >
+              <h1>Upload your image</h1>
+              <h2 class="subheader">Yolov5</h2>
+              <div class="file-infos">
+                <p class="file-icon"><i class="fas fa-folder-open fa-3x"></i><span class="icon-shadow"></span>
+                <div class="upload-text"  ><span class="has-drag">Drag & Drop your file here</span><span class="bold">OR</span><span> <button>Click to upload</button></span></div>
+                </p>
+
+              </div>
+              <p class="file-name" id="js-file-name">No file selected</p>
+            </div>
+          </div>
+            <input type="submit" value="Analyze" id="myBtn_origin" style = '   display:flex;  width : 200px; height: 40px; margin:5% auto; ' />
+            <button type="button" id="myBtn" onclick= "window.location.href='{{ url_for('download') }}';"  value="Download" style = 'display: block; left: 50%; width : 200px; height: 40px; margin: 2% auto; vertical-align: middle; text-align: center;'> Download </button>
+        </form>
+
+        </div>
+
+
+
+
+
+        <form  style="float:right; display:inline-block; width: 50%; height: 100%; border-left: thick double #32a1ce; margin:0% auto; "  class="div2">
+            <div style="   width: 50%; height: 50%; border: thick double #00008B; margin: 10% auto auto; background-color: whitesmoke" >
+                <img id="frame1" src="" style="   width: 100%; height: 100%; "   >
+                <img id="hidden_frame" type="hidden" style="   width: 0%; height: 0%; "   >
+            </div>
+
+            <input  type="button"   id = "first_button" value="Start" class="btn first"   style = '  display:flex;   width : 21%; height: 6%; margin: auto; margin-top:5% ;'   />
+            <input  type="button"   id = "second_button" value="Stop" class="btn first"   style = '  display:flex;   width : 21%; height: 6%; margin:1% auto;'   />
+            <input  type="button"   id = "exit_button" onclick= "window.location.href='{{ url_for('Acceuil') }}'"  value="Exit WebCom" class="btn first"   style = '  display:flex;   width : 21%; height: 6%; margin:1% auto;'   />
+        </form>
+
+
+
+
+    </div>
+
+
+
+</body>
+
+ <head>
+                <script>
+
+                    var btn_connect = document.getElementById('first_button');
+                    var btn_disconnect = document.getElementById('second_button');
+                    var btn_exit = document.getElementById('exit_button');
+
+                    btn_connect.addEventListener('click',method1);
+                    btn_disconnect.addEventListener('click',method2);
+                    btn_exit.addEventListener('click',method3);
+
+                    let ws = new WebSocket("ws://localhost:8000/ws");
+                    let image = document.getElementById("frame1");
+                    let hidden_imgae = document.getElementById("hidden_frame");
+
+
+                    var image_base = "https://www.asisonline.org/globalassets/security-management/security-technology/2021/december/1221-megan-gates-facial-recognition-freeze-frame2.jpg"
+                    image.src = image_base.replace('90x90', '225x225');
+                    image.style.display = "block";
+
+
+                    function method1(){
+                        ws.onmessage = function(event) {
+                            image.src = URL.createObjectURL(event.data);
+                        }
+                    }
+
+
+                    function method2(){
+                        ws.onmessage = function(event) {
+                            hidden_imgae.src = URL.createObjectURL(event.data);
+                        }
+                      var sourceOfPicture = "https://upload.wikimedia.org/wikipedia/commons/7/79/Cameras_not_allowed.svg";
+                      image.src = sourceOfPicture.replace('90x90', '225x225');
+                      image.style.display = "block";
+                    }
+
+                    function method3(){
+                        ws.close();
+                    }
+
+                </script>
+
+</head>
+
+</html>
+

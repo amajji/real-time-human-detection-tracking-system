@@ -1,0 +1,772 @@
+[2023-07-13 16:53:03,201.201] INFO [139938991616128] - Will watch for changes in these directories: ['/home/majji/Documents/project_github/person detection yolov5/yolov5_master/app']
+[2023-07-13 16:53:03,202.202] INFO [139938991616128] - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+[2023-07-13 16:53:03,202.202] INFO [139938991616128] - Started reloader process [12799] using StatReload
+[2023-07-13 16:53:07,644.644] INFO [140347699282048] - Started server process [12802]
+[2023-07-13 16:53:07,644.644] INFO [140347699282048] - Waiting for application startup.
+[2023-07-13 16:53:07,644.644] INFO [140347699282048] - Application startup complete.
+[2023-07-13 16:53:19,533.533] INFO [140347699282048] - 127.0.0.1:60944 - "GET / HTTP/1.1" 200
+[2023-07-13 16:53:19,670.670] INFO [140347699282048] - ('127.0.0.1', 60950) - "WebSocket /ws" [accepted]
+[2023-07-13 16:53:20,995.995] INFO [140347699282048] - connection open
+[2023-07-13 16:54:15,458.458] INFO [140347699282048] - 127.0.0.1:60944 - "POST /uploader_ HTTP/1.1" 500
+[2023-07-13 16:54:15,459.459] ERROR [140347699282048] - Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/majji/python_310/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 428, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/home/majji/python_310/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/uvicorn/middleware/message_logger.py", line 86, in __call__
+    raise exc from None
+  File "/home/majji/python_310/lib/python3.10/site-packages/uvicorn/middleware/message_logger.py", line 82, in __call__
+    await self.app(scope, inner_receive, inner_send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/fastapi/applications.py", line 276, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/majji/python_310/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/majji/python_310/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/home/majji/python_310/lib/python3.10/site-packages/fastapi/routing.py", line 237, in app
+    raw_response = await run_endpoint_function(
+  File "/home/majji/python_310/lib/python3.10/site-packages/fastapi/routing.py", line 163, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/home/majji/Documents/project_github/person detection yolov5/yolov5_master/app/app.py", line 336, in uploader
+    img = Image.open(file_1.file)
+  File "/home/majji/python_310/lib/python3.10/site-packages/PIL/Image.py", line 3298, in open
+    raise UnidentifiedImageError(msg)
+PIL.UnidentifiedImageError: cannot identify image file <tempfile.SpooledTemporaryFile object at 0x7fa47b92b340>
+[2023-07-13 16:54:15,473.473] ERROR [140347699282048] - Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/majji/python_310/lib/python3.10/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 254, in run_asgi
+    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/uvicorn/middleware/message_logger.py", line 86, in __call__
+    raise exc from None
+  File "/home/majji/python_310/lib/python3.10/site-packages/uvicorn/middleware/message_logger.py", line 82, in __call__
+    await self.app(scope, inner_receive, inner_send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/fastapi/applications.py", line 276, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/middleware/errors.py", line 149, in __call__
+    await self.app(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/majji/python_310/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/majji/python_310/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/routing.py", line 341, in handle
+    await self.app(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/routing.py", line 82, in app
+    await func(session)
+  File "/home/majji/python_310/lib/python3.10/site-packages/fastapi/routing.py", line 289, in app
+    await dependant.call(**values)
+  File "/home/majji/Documents/project_github/person detection yolov5/yolov5_master/app/app.py", line 324, in run
+    await websocket.send_bytes(encoded_img.tobytes())
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/websockets.py", line 166, in send_bytes
+    await self.send({"type": "websocket.send", "bytes": data})
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/websockets.py", line 85, in send
+    await self._send(message)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 65, in sender
+    await send(message)
+  File "/home/majji/python_310/lib/python3.10/site-packages/uvicorn/middleware/message_logger.py", line 76, in inner_send
+    await send(message)
+  File "/home/majji/python_310/lib/python3.10/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 327, in asgi_send
+    await self.send(data)  # type: ignore[arg-type]
+  File "/home/majji/python_310/lib/python3.10/site-packages/websockets/legacy/protocol.py", line 647, in send
+    await self.write_frame(True, opcode, data)
+  File "/home/majji/python_310/lib/python3.10/site-packages/websockets/legacy/protocol.py", line 1205, in write_frame
+    await self.drain()
+  File "/home/majji/python_310/lib/python3.10/site-packages/websockets/legacy/protocol.py", line 1194, in drain
+    await self.ensure_open()
+  File "/home/majji/python_310/lib/python3.10/site-packages/websockets/legacy/protocol.py", line 935, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1001 (going away); then sent 1001 (going away)
+[2023-07-13 16:54:15,475.475] INFO [140347699282048] - connection closed
+[2023-07-13 16:54:15,489.489] INFO [140347699282048] - 127.0.0.1:60958 - "GET /Acceuil HTTP/1.1" 200
+[2023-07-13 16:54:15,683.683] INFO [140347699282048] - ('127.0.0.1', 60968) - "WebSocket /ws" [accepted]
+[2023-07-13 16:54:16,150.150] ERROR [140347699282048] - Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/majji/python_310/lib/python3.10/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 254, in run_asgi
+    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/uvicorn/middleware/message_logger.py", line 86, in __call__
+    raise exc from None
+  File "/home/majji/python_310/lib/python3.10/site-packages/uvicorn/middleware/message_logger.py", line 82, in __call__
+    await self.app(scope, inner_receive, inner_send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/fastapi/applications.py", line 276, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/middleware/errors.py", line 149, in __call__
+    await self.app(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/majji/python_310/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/majji/python_310/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/routing.py", line 341, in handle
+    await self.app(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/routing.py", line 82, in app
+    await func(session)
+  File "/home/majji/python_310/lib/python3.10/site-packages/fastapi/routing.py", line 289, in app
+    await dependant.call(**values)
+  File "/home/majji/Documents/project_github/person detection yolov5/yolov5_master/app/app.py", line 223, in run
+    dataset = LoadStreams(source, img_size=imgsz, stride=stride, auto=pt, vid_stride=vid_stride)
+  File "/home/majji/Documents/project_github/person detection yolov5/yolov5_master/yolov5/utils/dataloaders.py", line 367, in __init__
+    assert cap.isOpened(), f'{st}Failed to open {s}'
+AssertionError: 1/1: 0... Failed to open 0
+[2023-07-13 16:54:16,151.151] INFO [140347699282048] - connection open
+[2023-07-13 16:54:16,153.153] INFO [140347699282048] - connection closed
+[2023-07-13 16:56:39,333.333] WARNING [139938991616128] - StatReload detected changes in 'app.py'. Reloading...
+[2023-07-13 16:56:39,365.365] INFO [140347699282048] - Shutting down
+[2023-07-13 16:56:39,466.466] INFO [140347699282048] - Waiting for application shutdown.
+[2023-07-13 16:56:39,466.466] INFO [140347699282048] - Application shutdown complete.
+[2023-07-13 16:56:39,466.466] INFO [140347699282048] - Finished server process [12802]
+[2023-07-13 16:56:44,135.135] INFO [140295002873984] - Started server process [13634]
+[2023-07-13 16:56:44,136.136] INFO [140295002873984] - Waiting for application startup.
+[2023-07-13 16:56:44,136.136] INFO [140295002873984] - Application startup complete.
+[2023-07-13 16:56:51,491.491] WARNING [139938991616128] - StatReload detected changes in 'app.py'. Reloading...
+[2023-07-13 16:56:51,562.562] INFO [140295002873984] - Shutting down
+[2023-07-13 16:56:51,663.663] INFO [140295002873984] - Waiting for application shutdown.
+[2023-07-13 16:56:51,663.663] INFO [140295002873984] - Application shutdown complete.
+[2023-07-13 16:56:51,663.663] INFO [140295002873984] - Finished server process [13634]
+[2023-07-13 16:56:54,326.326] INFO [139938991616128] - Stopping reloader process [12799]
+[2023-07-13 16:56:55,563.563] INFO [140035832230016] - Will watch for changes in these directories: ['/home/majji/Documents/project_github/person detection yolov5/yolov5_master/app']
+[2023-07-13 16:56:55,563.563] INFO [140035832230016] - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+[2023-07-13 16:56:55,563.563] INFO [140035832230016] - Started reloader process [13710] using StatReload
+[2023-07-13 16:56:59,647.647] INFO [140321550524544] - Started server process [13712]
+[2023-07-13 16:56:59,647.647] INFO [140321550524544] - Waiting for application startup.
+[2023-07-13 16:56:59,647.647] INFO [140321550524544] - Application startup complete.
+[2023-07-13 16:57:07,428.428] INFO [140321550524544] - 127.0.0.1:32776 - "GET / HTTP/1.1" 200
+[2023-07-13 16:57:07,571.571] INFO [140321550524544] - ('127.0.0.1', 32786) - "WebSocket /ws" [accepted]
+[2023-07-13 16:57:08,968.968] INFO [140321550524544] -  NO CHANGE -- 
+[2023-07-13 16:57:08,989.989] INFO [140321550524544] - connection open
+[2023-07-13 16:57:09,253.253] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:09,436.436] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:09,589.589] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:09,782.782] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:09,971.971] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:10,156.156] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:10,472.472] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:10,756.756] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:10,955.955] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:11,102.102] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:11,255.255] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:11,566.566] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:11,711.711] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:11,856.856] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:12,011.011] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:12,166.166] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:12,317.317] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:12,696.696] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:12,955.955] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:13,218.218] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:13,486.486] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:13,870.870] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:14,018.018] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:14,202.202] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:14,400.400] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:14,586.586] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:14,774.774] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:14,953.953] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:15,099.099] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:15,261.261] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:15,419.419] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:15,580.580] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:15,890.890] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:16,090.090] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:16,279.279] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:16,462.462] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:16,648.648] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:16,847.847] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:17,035.035] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:17,200.200] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:17,463.463] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:17,702.702] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:17,846.846] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:18,163.163] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:18,345.345] INFO [140321550524544] -  NO CHANGE -- 
+[2023-07-13 16:57:18,530.530] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:18,722.722] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:18,910.910] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:19,084.084] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:19,236.236] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:19,385.385] INFO [140321550524544] -  NO CHANGE -- 
+[2023-07-13 16:57:19,529.529] INFO [140321550524544] -  NO CHANGE -- 
+[2023-07-13 16:57:19,674.674] INFO [140321550524544] -  NO CHANGE -- 
+[2023-07-13 16:57:19,821.821] INFO [140321550524544] -  NO CHANGE -- 
+[2023-07-13 16:57:19,966.966] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:20,114.114] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:20,380.380] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:20,564.564] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:20,778.778] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:20,967.967] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:21,155.155] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:21,343.343] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:21,522.522] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:21,671.671] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:21,819.819] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:21,964.964] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:22,110.110] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:22,258.258] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:22,547.547] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:22,693.693] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:22,838.838] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:23,046.046] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:23,243.243] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:23,438.438] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:23,583.583] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:23,739.739] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:23,889.889] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:24,039.039] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:24,191.191] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:24,348.348] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:24,497.497] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:24,774.774] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:24,991.991] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:25,239.239] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:25,417.417] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:25,567.567] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:25,717.717] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:25,868.868] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:26,025.025] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:26,172.172] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:26,323.323] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:26,592.592] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:27,085.085] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:27,239.239] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:27,389.389] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:27,563.563] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:27,752.752] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:27,949.949] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:28,140.140] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:28,352.352] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:28,539.539] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:28,728.728] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:28,931.931] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:29,262.262] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:29,409.409] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:29,555.555] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:29,704.704] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:29,853.853] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:29,997.997] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:30,148.148] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:30,346.346] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:30,542.542] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:30,741.741] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:30,948.948] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:31,192.192] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:31,567.567] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:31,768.768] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:31,978.978] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:32,137.137] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:32,282.282] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:32,424.424] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:32,567.567] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:32,710.710] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:32,852.852] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:32,994.994] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:33,138.138] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:33,317.317] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:33,549.549] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:33,742.742] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:33,889.889] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:34,086.086] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:34,280.280] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:34,465.465] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:34,658.658] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:34,809.809] INFO [140321550524544] -  NO CHANGE -- 
+[2023-07-13 16:57:34,992.992] INFO [140321550524544] -  NO CHANGE -- 
+[2023-07-13 16:57:35,216.216] INFO [140321550524544] -  NO CHANGE -- 
+[2023-07-13 16:57:35,364.364] INFO [140321550524544] -  NO CHANGE -- 
+[2023-07-13 16:57:35,565.565] INFO [140321550524544] -  NO CHANGE -- 
+[2023-07-13 16:57:35,864.864] INFO [140321550524544] -  NO CHANGE -- 
+[2023-07-13 16:57:36,005.005] INFO [140321550524544] -  NO CHANGE -- 
+[2023-07-13 16:57:36,150.150] INFO [140321550524544] -  NO CHANGE -- 
+[2023-07-13 16:57:36,294.294] INFO [140321550524544] -  NO CHANGE -- 
+[2023-07-13 16:57:36,453.453] INFO [140321550524544] -  NO CHANGE -- 
+[2023-07-13 16:57:36,597.597] INFO [140321550524544] -  NO CHANGE -- 
+[2023-07-13 16:57:36,741.741] INFO [140321550524544] -  NO CHANGE -- 
+[2023-07-13 16:57:36,883.883] INFO [140321550524544] -  NO CHANGE -- 
+[2023-07-13 16:57:37,028.028] INFO [140321550524544] -  NO CHANGE -- 
+[2023-07-13 16:57:37,170.170] INFO [140321550524544] -  NO CHANGE -- 
+[2023-07-13 16:57:37,315.315] INFO [140321550524544] -  NO CHANGE -- 
+[2023-07-13 16:57:37,456.456] INFO [140321550524544] -  NO CHANGE -- 
+[2023-07-13 16:57:37,603.603] INFO [140321550524544] -  NO CHANGE -- 
+[2023-07-13 16:57:37,751.751] INFO [140321550524544] -  NO CHANGE -- 
+[2023-07-13 16:57:37,988.988] INFO [140321550524544] -  NO CHANGE -- 
+[2023-07-13 16:57:38,176.176] INFO [140321550524544] -  NO CHANGE -- 
+[2023-07-13 16:57:38,321.321] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:38,465.465] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:38,644.644] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:38,931.931] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:39,087.087] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:39,242.242] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:39,438.438] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:39,589.589] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:39,776.776] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:39,935.935] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:40,173.173] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:40,357.357] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:40,559.559] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:40,749.749] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:40,941.941] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:41,091.091] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:41,291.291] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:41,650.650] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:41,957.957] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:42,119.119] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:42,499.499] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:42,692.692] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:42,848.848] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:43,136.136] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:43,450.450] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:43,711.711] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:43,962.962] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:44,188.188] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:44,669.669] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:44,913.913] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:45,392.392] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:45,609.609] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:45,799.799] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:45,997.997] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:46,212.212] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:46,611.611] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:47,099.099] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:47,411.411] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:47,627.627] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:47,852.852] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:48,048.048] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:48,240.240] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:48,436.436] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:48,706.706] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:49,219.219] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:49,485.485] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:49,712.712] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:49,968.968] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:50,228.228] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:50,475.475] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:50,734.734] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:50,952.952] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:51,429.429] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:51,695.695] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:52,016.016] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:52,381.381] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:52,678.678] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:53,014.014] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:53,284.284] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:53,782.782] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:54,062.062] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:54,380.380] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:54,747.747] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:55,230.230] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:55,485.485] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:56,161.161] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:56,546.546] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:56,908.908] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:57,230.230] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:57,559.559] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:57,759.759] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:58,089.089] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:58,293.293] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:58,593.593] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:58,879.879] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:59,070.070] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:59,273.273] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:57:59,626.626] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:58:00,179.179] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:58:00,553.553] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:58:01,009.009] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:58:01,372.372] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:58:01,891.891] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:58:02,532.532] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:58:02,808.808] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:58:03,012.012] INFO [140321550524544] -  TURN RIGHT -- 
+[2023-07-13 16:58:03,058.058] INFO [140321550524544] - 127.0.0.1:32776 - "GET /favicon.ico HTTP/1.1" 404
+[2023-07-13 16:58:03,059.059] ERROR [140321550524544] - Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/majji/python_310/lib/python3.10/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 254, in run_asgi
+    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/uvicorn/middleware/message_logger.py", line 86, in __call__
+    raise exc from None
+  File "/home/majji/python_310/lib/python3.10/site-packages/uvicorn/middleware/message_logger.py", line 82, in __call__
+    await self.app(scope, inner_receive, inner_send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/fastapi/applications.py", line 276, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/middleware/errors.py", line 149, in __call__
+    await self.app(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/majji/python_310/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/majji/python_310/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/routing.py", line 341, in handle
+    await self.app(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/routing.py", line 82, in app
+    await func(session)
+  File "/home/majji/python_310/lib/python3.10/site-packages/fastapi/routing.py", line 289, in app
+    await dependant.call(**values)
+  File "/home/majji/Documents/project_github/person detection yolov5/yolov5_master/app/app.py", line 326, in run
+    await websocket.send_bytes(encoded_img.tobytes())
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/websockets.py", line 166, in send_bytes
+    await self.send({"type": "websocket.send", "bytes": data})
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/websockets.py", line 85, in send
+    await self._send(message)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 65, in sender
+    await send(message)
+  File "/home/majji/python_310/lib/python3.10/site-packages/uvicorn/middleware/message_logger.py", line 76, in inner_send
+    await send(message)
+  File "/home/majji/python_310/lib/python3.10/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 327, in asgi_send
+    await self.send(data)  # type: ignore[arg-type]
+  File "/home/majji/python_310/lib/python3.10/site-packages/websockets/legacy/protocol.py", line 647, in send
+    await self.write_frame(True, opcode, data)
+  File "/home/majji/python_310/lib/python3.10/site-packages/websockets/legacy/protocol.py", line 1205, in write_frame
+    await self.drain()
+  File "/home/majji/python_310/lib/python3.10/site-packages/websockets/legacy/protocol.py", line 1194, in drain
+    await self.ensure_open()
+  File "/home/majji/python_310/lib/python3.10/site-packages/websockets/legacy/protocol.py", line 935, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1001 (going away); then sent 1001 (going away)
+[2023-07-13 16:58:03,063.063] INFO [140321550524544] - connection closed
+[2023-07-13 16:58:03,064.064] INFO [140321550524544] - 127.0.0.1:32792 - "GET /Acceuil HTTP/1.1" 200
+[2023-07-13 16:58:03,253.253] INFO [140321550524544] - ('127.0.0.1', 32800) - "WebSocket /ws" [accepted]
+[2023-07-13 16:58:03,836.836] ERROR [140321550524544] - Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/majji/python_310/lib/python3.10/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 254, in run_asgi
+    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/uvicorn/middleware/message_logger.py", line 86, in __call__
+    raise exc from None
+  File "/home/majji/python_310/lib/python3.10/site-packages/uvicorn/middleware/message_logger.py", line 82, in __call__
+    await self.app(scope, inner_receive, inner_send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/fastapi/applications.py", line 276, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/middleware/errors.py", line 149, in __call__
+    await self.app(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/majji/python_310/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/majji/python_310/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/routing.py", line 341, in handle
+    await self.app(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/routing.py", line 82, in app
+    await func(session)
+  File "/home/majji/python_310/lib/python3.10/site-packages/fastapi/routing.py", line 289, in app
+    await dependant.call(**values)
+  File "/home/majji/Documents/project_github/person detection yolov5/yolov5_master/app/app.py", line 224, in run
+    dataset = LoadStreams(source, img_size=imgsz, stride=stride, auto=pt, vid_stride=vid_stride)
+  File "/home/majji/Documents/project_github/person detection yolov5/yolov5_master/yolov5/utils/dataloaders.py", line 367, in __init__
+    assert cap.isOpened(), f'{st}Failed to open {s}'
+AssertionError: 1/1: 0... Failed to open 0
+[2023-07-13 16:58:03,837.837] INFO [140321550524544] - connection open
+[2023-07-13 16:58:03,840.840] INFO [140321550524544] - connection closed
+[2023-07-13 17:09:21,750.750] WARNING [140035832230016] - StatReload detected changes in 'app.py'. Reloading...
+[2023-07-13 17:09:21,816.816] INFO [140321550524544] - Shutting down
+[2023-07-13 17:09:21,916.916] INFO [140321550524544] - Waiting for application shutdown.
+[2023-07-13 17:09:21,917.917] INFO [140321550524544] - Application shutdown complete.
+[2023-07-13 17:09:21,917.917] INFO [140321550524544] - Finished server process [13712]
+[2023-07-13 17:09:23,170.170] INFO [140035832230016] - Stopping reloader process [13710]
+[2023-07-13 17:09:25,075.075] INFO [139909923606656] - Will watch for changes in these directories: ['/home/majji/Documents/project_github/person detection yolov5/yolov5_master/app']
+[2023-07-13 17:09:25,076.076] INFO [139909923606656] - Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+[2023-07-13 17:09:25,076.076] INFO [139909923606656] - Started reloader process [15687] using StatReload
+[2023-07-13 17:09:39,482.482] INFO [139773459112064] - Started server process [15689]
+[2023-07-13 17:09:39,482.482] INFO [139773459112064] - Waiting for application startup.
+[2023-07-13 17:09:39,482.482] INFO [139773459112064] - Application startup complete.
+[2023-07-13 17:09:39,715.715] INFO [139773459112064] - 127.0.0.1:32976 - "GET / HTTP/1.1" 200
+[2023-07-13 17:09:40,012.012] INFO [139773459112064] - ('127.0.0.1', 32986) - "WebSocket /ws" [accepted]
+[2023-07-13 17:09:42,366.366] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:42,384.384] INFO [139773459112064] - connection open
+[2023-07-13 17:09:42,553.553] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:42,735.735] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:42,921.921] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:43,115.115] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:43,406.406] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:43,581.581] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:43,755.755] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:43,945.945] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:44,112.112] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:44,290.290] INFO [139773459112064] -  NO CHANGE -- 
+[2023-07-13 17:09:44,495.495] INFO [139773459112064] -  TURN LEFT -- 
+[2023-07-13 17:09:44,675.675] INFO [139773459112064] -  NO CHANGE -- 
+[2023-07-13 17:09:45,271.271] INFO [139773459112064] -  NO CHANGE -- 
+[2023-07-13 17:09:45,727.727] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:45,988.988] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:46,167.167] INFO [139773459112064] -  NO CHANGE -- 
+[2023-07-13 17:09:46,332.332] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:46,510.510] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:46,680.680] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:46,854.854] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:47,029.029] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:47,380.380] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:47,987.987] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:48,324.324] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:48,580.580] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:49,028.028] INFO [139773459112064] -  NO CHANGE -- 
+[2023-07-13 17:09:49,263.263] INFO [139773459112064] -  NO CHANGE -- 
+[2023-07-13 17:09:49,443.443] INFO [139773459112064] -  TURN LEFT -- 
+[2023-07-13 17:09:49,610.610] INFO [139773459112064] -  NO CHANGE -- 
+[2023-07-13 17:09:49,789.789] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:50,125.125] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:50,332.332] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:50,508.508] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:50,736.736] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:50,930.930] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:51,133.133] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:51,333.333] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:51,506.506] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:51,729.729] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:51,901.901] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:52,302.302] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:52,479.479] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:52,698.698] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:52,930.930] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:53,100.100] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:53,315.315] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:53,483.483] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:53,690.690] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:53,904.904] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:54,135.135] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:54,487.487] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:54,659.659] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:54,829.829] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:55,004.004] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:55,218.218] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:55,496.496] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:55,674.674] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:55,873.873] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:56,041.041] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:56,245.245] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:56,661.661] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:56,998.998] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:57,184.184] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:57,351.351] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:57,515.515] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:57,691.691] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:57,866.866] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:58,044.044] INFO [139773459112064] -  NO CHANGE -- 
+[2023-07-13 17:09:58,257.257] INFO [139773459112064] -  NO CHANGE -- 
+[2023-07-13 17:09:58,439.439] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:58,635.635] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:59,012.012] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:59,246.246] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:59,477.477] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:59,684.684] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:09:59,931.931] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:00,181.181] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:00,450.450] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:00,653.653] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:01,077.077] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:01,265.265] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:01,501.501] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:01,809.809] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:02,015.015] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:02,475.475] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:02,660.660] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:02,856.856] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:03,344.344] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:03,594.594] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:03,804.804] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:04,021.021] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:04,303.303] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:04,527.527] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:04,824.824] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:05,475.475] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:05,703.703] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:05,894.894] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:06,077.077] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:06,268.268] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:06,535.535] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:06,739.739] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:06,943.943] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:07,157.157] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:07,372.372] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:07,727.727] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:08,057.057] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:08,557.557] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:08,869.869] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:09,190.190] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:09,484.484] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:10,003.003] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:10,437.437] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:10,791.791] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:11,237.237] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:11,621.621] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:11,952.952] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:12,336.336] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:12,564.564] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:12,827.827] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:13,167.167] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:13,647.647] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:13,909.909] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:14,148.148] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:14,650.650] INFO [139773459112064] -  NO CHANGE -- 
+[2023-07-13 17:10:15,099.099] INFO [139773459112064] -  NO CHANGE -- 
+[2023-07-13 17:10:15,432.432] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:15,835.835] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:16,278.278] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:16,785.785] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:17,161.161] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:17,376.376] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:17,613.613] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:17,836.836] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:18,070.070] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:18,364.364] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:18,664.664] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:19,081.081] INFO [139773459112064] -  TURN RIGHT -- 
+[2023-07-13 17:10:19,125.125] INFO [139773459112064] - 127.0.0.1:32976 - "GET /favicon.ico HTTP/1.1" 404
+[2023-07-13 17:10:19,126.126] ERROR [139773459112064] - Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/majji/python_310/lib/python3.10/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 254, in run_asgi
+    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/uvicorn/middleware/message_logger.py", line 86, in __call__
+    raise exc from None
+  File "/home/majji/python_310/lib/python3.10/site-packages/uvicorn/middleware/message_logger.py", line 82, in __call__
+    await self.app(scope, inner_receive, inner_send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/fastapi/applications.py", line 276, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/middleware/errors.py", line 149, in __call__
+    await self.app(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/majji/python_310/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/majji/python_310/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/routing.py", line 341, in handle
+    await self.app(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/routing.py", line 82, in app
+    await func(session)
+  File "/home/majji/python_310/lib/python3.10/site-packages/fastapi/routing.py", line 289, in app
+    await dependant.call(**values)
+  File "/home/majji/Documents/project_github/person detection yolov5/yolov5_master/app/app.py", line 327, in run
+    await websocket.send_bytes(encoded_img.tobytes())
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/websockets.py", line 166, in send_bytes
+    await self.send({"type": "websocket.send", "bytes": data})
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/websockets.py", line 85, in send
+    await self._send(message)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 65, in sender
+    await send(message)
+  File "/home/majji/python_310/lib/python3.10/site-packages/uvicorn/middleware/message_logger.py", line 76, in inner_send
+    await send(message)
+  File "/home/majji/python_310/lib/python3.10/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 327, in asgi_send
+    await self.send(data)  # type: ignore[arg-type]
+  File "/home/majji/python_310/lib/python3.10/site-packages/websockets/legacy/protocol.py", line 647, in send
+    await self.write_frame(True, opcode, data)
+  File "/home/majji/python_310/lib/python3.10/site-packages/websockets/legacy/protocol.py", line 1205, in write_frame
+    await self.drain()
+  File "/home/majji/python_310/lib/python3.10/site-packages/websockets/legacy/protocol.py", line 1194, in drain
+    await self.ensure_open()
+  File "/home/majji/python_310/lib/python3.10/site-packages/websockets/legacy/protocol.py", line 935, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1001 (going away); then sent 1001 (going away)
+[2023-07-13 17:10:19,192.192] INFO [139773459112064] - connection closed
+[2023-07-13 17:10:19,193.193] INFO [139773459112064] - 127.0.0.1:32988 - "GET /Acceuil HTTP/1.1" 200
+[2023-07-13 17:10:19,644.644] INFO [139773459112064] - ('127.0.0.1', 33012) - "WebSocket /ws" [accepted]
+[2023-07-13 17:10:20,439.439] ERROR [139773459112064] - Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/majji/python_310/lib/python3.10/site-packages/uvicorn/protocols/websockets/websockets_impl.py", line 254, in run_asgi
+    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/uvicorn/middleware/message_logger.py", line 86, in __call__
+    raise exc from None
+  File "/home/majji/python_310/lib/python3.10/site-packages/uvicorn/middleware/message_logger.py", line 82, in __call__
+    await self.app(scope, inner_receive, inner_send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/fastapi/applications.py", line 276, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/middleware/errors.py", line 149, in __call__
+    await self.app(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/majji/python_310/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/home/majji/python_310/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/routing.py", line 341, in handle
+    await self.app(scope, receive, send)
+  File "/home/majji/python_310/lib/python3.10/site-packages/starlette/routing.py", line 82, in app
+    await func(session)
+  File "/home/majji/python_310/lib/python3.10/site-packages/fastapi/routing.py", line 289, in app
+    await dependant.call(**values)
+  File "/home/majji/Documents/project_github/person detection yolov5/yolov5_master/app/app.py", line 225, in run
+    dataset = LoadStreams(source, img_size=imgsz, stride=stride, auto=pt, vid_stride=vid_stride)
+  File "/home/majji/Documents/project_github/person detection yolov5/yolov5_master/yolov5/utils/dataloaders.py", line 367, in __init__
+    assert cap.isOpened(), f'{st}Failed to open {s}'
+AssertionError: 1/1: 0... Failed to open 0
+[2023-07-13 17:10:20,441.441] INFO [139773459112064] - connection open
+[2023-07-13 17:10:20,444.444] INFO [139773459112064] - 127.0.0.1:32988 - "GET /favicon.ico HTTP/1.1" 404
+[2023-07-13 17:10:20,444.444] INFO [139773459112064] - connection closed
+[2023-07-13 17:27:18,246.246] WARNING [139909923606656] - StatReload detected changes in 'unit_test.py'. Reloading...
+[2023-07-13 17:27:18,268.268] INFO [139773459112064] - Shutting down
+[2023-07-13 17:27:18,369.369] INFO [139773459112064] - Waiting for application shutdown.
+[2023-07-13 17:27:18,370.370] INFO [139773459112064] - Application shutdown complete.
+[2023-07-13 17:27:18,370.370] INFO [139773459112064] - Finished server process [15689]
+[2023-07-13 17:27:30,216.216] WARNING [139909923606656] - StatReload detected changes in 'unit_test.py'. Reloading...
+[2023-07-13 17:27:38,329.329] INFO [139878629933184] - Started server process [18682]
+[2023-07-13 17:27:38,330.330] INFO [139878629933184] - Waiting for application startup.
+[2023-07-13 17:27:38,330.330] INFO [139878629933184] - Application startup complete.
+[2023-07-13 17:28:20,445.445] WARNING [139909923606656] - StatReload detected changes in 'unit_test.py'. Reloading...
+[2023-07-13 17:28:20,502.502] INFO [139878629933184] - Shutting down
+[2023-07-13 17:28:20,604.604] INFO [139878629933184] - Waiting for application shutdown.
+[2023-07-13 17:28:20,606.606] INFO [139878629933184] - Application shutdown complete.
+[2023-07-13 17:28:20,606.606] INFO [139878629933184] - Finished server process [18682]
+[2023-07-13 17:28:22,394.394] INFO [139909923606656] - Stopping reloader process [15687]
