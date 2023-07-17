@@ -28,6 +28,8 @@ from fastapi.responses import HTMLResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi import FastAPI, Request, WebSocket, WebSocketDisconnect
+from  fastapi import status,UploadFile, File, FastAPI
+from fastapi.responses import JSONResponse
 from PIL import Image
 import torch
 from shutil import rmtree
@@ -167,6 +169,8 @@ def decision(image_imread, box_coord):
 
 
 
+
+
 @app.get('/')
 def window_princip(request: Request):
     return templates.TemplateResponse('first_page.html', context= {"request": request})
@@ -204,7 +208,6 @@ async def run(websocket: WebSocket,
             vid_stride=1,  # video frame-rate stride
             ):
             await websocket.accept()
-            print("ohh jolie")
             source = str(source)
             print(" source ", source)
             save_img = not nosave and not source.endswith('.txt')  # save inference images
@@ -242,100 +245,102 @@ async def run(websocket: WebSocket,
             # Run inference
             model.warmup(imgsz=(1 if pt or model.triton else bs, 3, *imgsz))  # warmup
             seen, windows, dt = 0, [], (Profile(), Profile(), Profile())
-            for path, im, im0s, vid_cap, s in dataset:
+            try :
+                for path, im, im0s, vid_cap, s in dataset:
 
-                    with dt[0]:
-                            im = torch.from_numpy(im).to(model.device)
-                            im = im.half() if model.fp16 else im.float()  # uint8 to fp16/32
-                            im /= 255  # 0 - 255 to 0.0 - 1.0
-                            if len(im.shape) == 3:
-                                    im = im[None]  # expand for batch dim
+                        with dt[0]:
+                                im = torch.from_numpy(im).to(model.device)
+                                im = im.half() if model.fp16 else im.float()  # uint8 to fp16/32
+                                im /= 255  # 0 - 255 to 0.0 - 1.0
+                                if len(im.shape) == 3:
+                                        im = im[None]  # expand for batch dim
 
-                    # Inference
-                    with dt[1]:
-                            visualize = increment_path(save_dir / Path(path).stem,
-                                                       mkdir=True) if visualize else False
-                            pred = model(im, augment=augment, visualize=visualize)
+                        # Inference
+                        with dt[1]:
+                                visualize = increment_path(save_dir / Path(path).stem,
+                                                           mkdir=True) if visualize else False
+                                pred = model(im, augment=augment, visualize=visualize)
 
-                    # NMS
-                    with dt[2]:
-                            pred = non_max_suppression(pred, conf_thres, iou_thres, classes, agnostic_nms,
-                                                       max_det=max_det)
+                        # NMS
+                        with dt[2]:
+                                pred = non_max_suppression(pred, conf_thres, iou_thres, classes, agnostic_nms,
+                                                           max_det=max_det)
 
-                    # Second-stage classifier (optional)
-                    # pred = utils.general.apply_classifier(pred, classifier_model, im, im0s)
+                        # Second-stage classifier (optional)
+                        # pred = utils.general.apply_classifier(pred, classifier_model, im, im0s)
 
-                    # Process predictions
-                    for i, det in enumerate(pred):  # per image
-                            seen += 1
-                            if webcam:  # batch_size >= 1
-                                    p, im0, frame = path[i], im0s[i].copy(), dataset.count
-                                    s += f'{i}: '
-                            else:
-                                    p, im0, frame = path, im0s.copy(), getattr(dataset, 'frame', 0)
+                        # Process predictions
+                        for i, det in enumerate(pred):  # per image
+                                seen += 1
+                                if webcam:  # batch_size >= 1
+                                        p, im0, frame = path[i], im0s[i].copy(), dataset.count
+                                        s += f'{i}: '
+                                else:
+                                        p, im0, frame = path, im0s.copy(), getattr(dataset, 'frame', 0)
 
-                            p = Path(p)  # to Path
-                            save_path = str(save_dir / p.name)  # im.jpg
-                            txt_path = str(save_dir / 'labels' / p.stem) + (
-                                    '' if dataset.mode == 'image' else f'_{frame}')  # im.txt
-                            s += '%gx%g ' % im.shape[2:]  # print string
-                            gn = torch.tensor(im0.shape)[[1, 0, 1, 0]]  # normalization gain whwh
-                            imc = im0.copy() if save_crop else im0  # for save_crop
-                            annotator = Annotator(im0, line_width=line_thickness, example=str(names))
+                                p = Path(p)  # to Path
+                                save_path = str(save_dir / p.name)  # im.jpg
+                                txt_path = str(save_dir / 'labels' / p.stem) + (
+                                        '' if dataset.mode == 'image' else f'_{frame}')  # im.txt
+                                s += '%gx%g ' % im.shape[2:]  # print string
+                                gn = torch.tensor(im0.shape)[[1, 0, 1, 0]]  # normalization gain whwh
+                                imc = im0.copy() if save_crop else im0  # for save_crop
+                                annotator = Annotator(im0, line_width=line_thickness, example=str(names))
 
-                            if len(det):
+                                if len(det):
 
-                                    # Rescale boxes from img_size to im0 size
-                                    det[:, :4] = scale_boxes(im.shape[2:], det[:, :4], im0.shape).round()
+                                        # Rescale boxes from img_size to im0 size
+                                        det[:, :4] = scale_boxes(im.shape[2:], det[:, :4], im0.shape).round()
 
-                                    # Print results
-                                    for c in det[:, 5].unique():
-                                            n = (det[:, 5] == c).sum()  # detections per class
-                                            s += f"{n} {names[int(c)]}{'s' * (n > 1)}, "  # add to string
+                                        # Print results
+                                        for c in det[:, 5].unique():
+                                                n = (det[:, 5] == c).sum()  # detections per class
+                                                s += f"{n} {names[int(c)]}{'s' * (n > 1)}, "  # add to string
 
-                                    # Write results
-                                    for *xyxy, conf, cls in reversed(det):
-                                            xywh = xyxy2xywh(torch.tensor(xyxy).view(1, 4)).tolist()[0]
+                                        # Write results
+                                        for *xyxy, conf, cls in reversed(det):
+                                                xywh = xyxy2xywh(torch.tensor(xyxy).view(1, 4)).tolist()[0]
 
-                                            if save_txt:  # Write to file
-                                                    xywh = (xyxy2xywh(torch.tensor(xyxy).view(1, 4)) / gn).view(
-                                                            -1).tolist()  # normalized xywh
-                                                    line = (cls, *xywh, conf) if save_conf else (
-                                                            cls, *xywh)  # label format
-                                                    with open(f'{txt_path}.txt', 'a') as f:
-                                                            f.write(('%g ' * len(line)).rstrip() % line + '\n')
+                                                if save_txt:  # Write to file
+                                                        xywh = (xyxy2xywh(torch.tensor(xyxy).view(1, 4)) / gn).view(
+                                                                -1).tolist()  # normalized xywh
+                                                        line = (cls, *xywh, conf) if save_conf else (
+                                                                cls, *xywh)  # label format
+                                                        with open(f'{txt_path}.txt', 'a') as f:
+                                                                f.write(('%g ' * len(line)).rstrip() % line + '\n')
 
-                                            if save_img or save_crop or view_img:  # Add bbox to image
+                                                if save_img or save_crop or view_img:  # Add bbox to image
 
-                                                    c = int(cls)  # integer class
-                                                    label = None if hide_labels else (
-                                                            names[c] if hide_conf else f'{names[c]} {conf:.2f}')
-                                                    # Get the position of the person detected compared to the center of the screen
-                                                    coord_centre_box, finale_decision = decision(im0,
-                                                                                                 [ele.tolist() for ele
-                                                                                                  in xyxy])
+                                                        c = int(cls)  # integer class
+                                                        label = None if hide_labels else (
+                                                                names[c] if hide_conf else f'{names[c]} {conf:.2f}')
+                                                        # Get the position of the person detected compared to the center of the screen
+                                                        coord_centre_box, finale_decision = decision(im0,
+                                                                                                     [ele.tolist() for ele
+                                                                                                      in xyxy])
 
-                                                    annotator.box_label(xyxy, label, color=colors(c, True))
-                                                    annotator.box_label(coord_centre_box)
-                                                    # print the finale decision : turn right/ left or no change
-                                                    #print("  Finale decision  --- : ", finale_decision)
-                                                    logging.info(finale_decision)
+                                                        annotator.box_label(xyxy, label, color=colors(c, True))
+                                                        annotator.box_label(coord_centre_box)
+                                                        # print the finale decision : turn right/ left or no change
+                                                        #print("  Finale decision  --- : ", finale_decision)
+                                                        logging.info(finale_decision)
 
-                                            if save_crop:
-                                                    save_one_box(xyxy, imc, file=save_dir / 'crops' / names[
-                                                            c] / f'{p.stem}.jpg', BGR=True)
+                                                if save_crop:
+                                                        save_one_box(xyxy, imc, file=save_dir / 'crops' / names[
+                                                                c] / f'{p.stem}.jpg', BGR=True)
 
-                            # Stream results
-                            im0 = annotator.result()
+                                # Stream results
+                                im0 = annotator.result()
 
-                            # encode the annotated image
-                            _, encoded_img = cv2.imencode('.png', im0)
-                            #encoded_image = base64.b64encode(encoded_img).decode("utf-8")
+                                # encode the annotated image
+                                _, encoded_img = cv2.imencode('.png', im0)
+                                #encoded_image = base64.b64encode(encoded_img).decode("utf-8")
 
-                            # send the output in the websocket to the client
-                            await websocket.send_bytes(encoded_img.tobytes())
+                                # send the output in the websocket to the client
+                                await websocket.send_bytes(encoded_img.tobytes())
 
-
+            except WebSocketDisconnect:
+                await websocket.close()
 
 
 
@@ -343,26 +348,31 @@ async def run(websocket: WebSocket,
 
 @app.post('/uploader_')
 async def uploader(request: Request, file_1: UploadFile = File(...)):
+#    try:
+    img = Image.open(file_1.file)
+    # except Exception as e:
+    #     return JSONResponse(
+    #         status_code=status.HTTP_400_BAD_REQUEST,
+    #         content={'message': str(e)}
+    #     )
 
-        # get the uploaded image
-        img = Image.open(file_1.file)
-        print("image's shape -- : ", np.array(img).shape)
+    print("image's shape -- : ", np.array(img).shape)
 
-        # delete all folders of runs/detect
-        path_exp = f"{parent_path}/yolov5/runs/"
-        _del = [rmtree(path) for path in Path(path_exp).glob("**/*")]
+    # delete all folders of runs/detect
+    path_exp = f"{parent_path}/yolov5/runs/"
+    _del = [rmtree(path) for path in Path(path_exp).glob("**/*")]
 
-        # get the result of the model
-        results = model(img)
-        print("model finished ... ")
+    # get the result of the model
+    results = model(img)
+    print("model finished ... ")
 
-        # Results
-        results.print()
+    # Results
+    results.print()
 
-        # save results
-        results.save(save_dir = f"{parent_path}/yolov5/runs/detect/")
+    # save results
+    results.save(save_dir = f"{parent_path}/yolov5/runs/detect/")
 
-        return templates.TemplateResponse('second_page.html', context= {"request": request})
+    return templates.TemplateResponse('second_page.html', context= {"request": request})
 
 
 
@@ -384,9 +394,10 @@ def Acceuil(request: Request):
 
 
 
+
 # Run the application
 if __name__ == "__main__":
 
-    uvicorn.run(app)
+    uvicorn.run(app, reload=True)
 
 
