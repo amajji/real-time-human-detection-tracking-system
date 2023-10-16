@@ -327,15 +327,3 @@ if __name__ == '__main__':
     main(opt)
 
 
-
-  <head>
- <script src="upload.js"></script>
-</head>s
-
-html,body{
-  height:100%;
-  width: 100%;
-  background: linear-gradient(darkslategrey,transparent, transparent,darkslategrey, darkslategrey),
-        url("person.jpg");
-  no-repeat: center center/cover;
-}
