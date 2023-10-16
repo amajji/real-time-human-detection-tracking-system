@@ -3,7 +3,7 @@ Data scientist | [Anass MAJJI](https://www.linkedin.com/in/anass-majji-729773157
 ***
 
 ## :monocle_face: Description
-- This project aims to scrap a US government website using the Scrapy framework. </br>
+- In this project. </br>
 
 
  
@@ -21,9 +21,7 @@ The repository contains the following files & directories:
 
 
 ## :chart_with_upwards_trend: Performance & results
-Files are downloaded and stored in downloaded_files folder :
 
-![](result_scrapy.png)
 
 ---
 ## :mailbox_closed: Contact
