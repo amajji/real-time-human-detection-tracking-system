@@ -1,6 +1,7 @@
 from fastapi.testclient import TestClient
 from PIL import Image
 import numpy as np
+import sys
 sys.path.append(os.path.abspath('..'))
 from app import app, decision
 from fastapi import status
