@@ -1,7 +1,7 @@
 from fastapi.testclient import TestClient
 from PIL import Image
 import numpy as np
-from ..app.app import app, decision
+from .app.app import app, decision
 from fastapi import status
 import pytest
 
