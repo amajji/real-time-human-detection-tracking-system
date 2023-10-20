@@ -177,7 +177,7 @@ def decision(image_imread, box_coord):
 def window_princip(request: Request):
     return templates.TemplateResponse('first_page.html', context= {"request": request})
 
-
+ROOT = ""
 @smart_inference_mode()
 @app.websocket('/ws')
 async def run(websocket: WebSocket,
