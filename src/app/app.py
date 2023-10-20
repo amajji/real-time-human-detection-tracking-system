@@ -181,9 +181,9 @@ ROOT = ""
 @smart_inference_mode()
 @app.websocket('/ws')
 async def run(websocket: WebSocket,
-        weights=ROOT / 'yolov5s.pt',  # model path or triton URL
-            source=0,  # file/dir/URL/glob/screen/0(webcam)
-            data=ROOT / 'data/coco128.yaml',  # dataset.yaml path
+        weights='yolov5s.pt',  # model path or triton URL  ROOT / 
+            source=0,  # file/dir/URL/glob/screen/0(webcam) 
+            data= 'data/coco128.yaml',  # dataset.yaml path  ROOT /
             imgsz=(640, 640),  # inference size (height, width)
             conf_thres=0.25,  # confidence threshold
             iou_thres=0.45,  # NMS IOU threshold
@@ -199,7 +199,7 @@ async def run(websocket: WebSocket,
             augment=False,  # augmented inference
             visualize=False,  # visualize features
             update=False,  # update all models
-            project=ROOT / 'runs/detect',  # save results to project/name
+            project= 'runs/detect',  # save results to project/name  ROOT /
             name='exp',  # save results to project/name
             exist_ok=False,  # existing project/name ok, do not increment
             line_thickness=3,  # bounding box thickness (pixels)
