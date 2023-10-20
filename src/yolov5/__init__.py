@@ -1,1 +1,1 @@
-from yolov5 import *
+from src.yolov5 import *
