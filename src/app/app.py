@@ -71,7 +71,7 @@ app.mount("/static", StaticFiles(directory=st_abs_file_path), name = "static")
 
 
 # load yolov5 model
-model = torch.hub.load("../yolov5", 'custom', path="../yolov5/yolov5s.pt", source='local')
+model = torch.hub.load("yolov5", 'custom', path="yolov5/yolov5s.pt", source='local')
 
 # detect only persons
 model.classes = 0
