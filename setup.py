@@ -1,1 +1,1 @@
-packages=['yolov5', 'tests']
+packages=['src.yolov5']
