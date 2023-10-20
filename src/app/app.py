@@ -18,6 +18,7 @@
 
 import sys
 import os
+export PYTHONPATH='.'
 parent_path = os.path.normpath(os.path.join(os.getcwd(), os.pardir))
 sys.path.append(parent_path)
 
