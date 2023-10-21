@@ -46,7 +46,7 @@ from yolov5.utils.torch_utils import select_device, smart_inference_mode
 from yolov5.models.common import DetectMultiBackend
 import logging
 parent_path = os.path.normpath(os.path.join(os.getcwd(), os.pardir))
-parent_path =  "src/"
+parent_path =  "src"
 ##########################################################################################################################
 #                                                 Main Code                                                              #
 ##########################################################################################################################
