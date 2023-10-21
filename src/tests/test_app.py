@@ -9,9 +9,12 @@ from PIL import Image
 import numpy as np
 import sys
 import os
-from ..app import app, decision
+from app.app import app, decision
 from fastapi import status
 import pytest
+import torch
+
+
 
 
 
@@ -49,7 +52,7 @@ def test_decision():
     """
 
     # Input image
-    image = Image.open("./savedimage.jpg")
+    image = Image.open(r"./src/tests/savedimage.jpg")
 
     # THe box is well centred, the position's camera will not change
     list_input_no_change = [173.0, 281.0, 460.0, 480.0]
@@ -97,7 +100,7 @@ def test_upload_file():
     In this function, we test "uploader_" route when uploading a file
     """
     # our input image
-    image = "./zidane.jpg"
+    image = r"./src/tests/zidane.jpg"
 
     # Post the input image on the "uploader" route
     response = client.post(
