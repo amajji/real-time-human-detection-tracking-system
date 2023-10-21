@@ -20,6 +20,7 @@ import sys
 import os
 parent_path = os.path.normpath(os.path.join(os.getcwd(), os.pardir))
 
+sys.path.append(os.path.abspath('..'))
 
 import uvicorn
 import numpy as np
