@@ -1,7 +1,7 @@
 ############################################################################################################################
 #                                  Author: Anass MAJJI                                                                     #
 #                               File Name: app/app.py                                                                      #
-#                           Creation Date: May 05, 2022                                                              #
+#                           Creation Date: May 05, 2023                                                              #
 #                         Source Language: Python                                                                          #
 #         Repository:           #
 #                              --- Code Description ---                                                                    #
@@ -16,11 +16,11 @@
 #                                                 Packages                                                                 #
 ############################################################################################################################
 
+
 import sys
 import os
-parent_path = os.path.normpath(os.path.join(os.getcwd(), os.pardir))
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))  # noqa
 
-#sys.path.append(os.path.abspath('..'))
 
 import uvicorn
 import numpy as np
@@ -44,8 +44,9 @@ from yolov5.utils.general import (LOGGER, Profile, check_file, check_img_size, c
 from yolov5.utils.plots import Annotator, colors, save_one_box
 from yolov5.utils.torch_utils import select_device, smart_inference_mode
 from yolov5.models.common import DetectMultiBackend
-
 import logging
+parent_path = os.path.normpath(os.path.join(os.getcwd(), os.pardir))
+
 ##########################################################################################################################
 #                                                 Main Code                                                              #
 ##########################################################################################################################
@@ -72,7 +73,7 @@ app.mount("/static", StaticFiles(directory=st_abs_file_path), name = "static")
 
 
 # load yolov5 model
-model = torch.hub.load("src/yolov5", 'custom', path="src/yolov5/yolov5s.pt", source='local')
+model = torch.hub.load("yolov5", 'custom', path="yolov5/yolov5s.pt", source='local')
 
 # detect only persons
 model.classes = 0
