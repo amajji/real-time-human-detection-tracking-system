@@ -8,7 +8,7 @@ from PIL import Image
 import numpy as np
 import sys
 import os
-from ..app import app, decision
+from app import app, decision
 from fastapi import status
 import pytest
 
