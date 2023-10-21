@@ -1,7 +1,7 @@
 import sys
 import os 
 
-sys.path.append(os.path.abspath('..'))
+
 
 from fastapi.testclient import TestClient
 from PIL import Image
