@@ -17,7 +17,6 @@ import torch
 
 
 
-
 # Client test
 client = TestClient(app)
 
