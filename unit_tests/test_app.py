@@ -26,7 +26,7 @@ from PIL import Image
 import numpy as np
 import sys
 import os
-from ..src.app.app import app, decision
+from src.app.app import app, decision
 from fastapi import status
 import pytest
 import torch
