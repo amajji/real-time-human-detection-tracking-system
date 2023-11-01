@@ -42,6 +42,13 @@ In this section, we are going to demonstrate a walkthrough on building and deplo
  <img src="images/stop_tracking.png" width="950" />
 </p>
 
+- CI/CD : Finally, to deploy the project we use CI/CD which is one of the best practices in software development as it reduces the repetitive process of unit tests and the deployment of the software. For that, in src/test_app.py script, we test each function of the Fastapi webapp. All of these processes can be achieved using a new feature on github called github Actions. To create the CI/CD workflow, we need to create a .yml file on .github/workflows in which we have the instructions of our automated tests and deployment process.
+
+<p align="center">
+ <img src="images/github_ci_cd.png" width="950" />
+</p>
+
+
 
 
 - Hardware part : We deploy the yolov5 model using Arduino UNO card. For that, we need : 
@@ -87,12 +94,8 @@ In this section, we are going to demonstrate a walkthrough on building and deplo
 * To controll 2 servo-motors using arduino Card, we need first to  
 
 
-- CI/CD : Finally, to deploy the project we use CI/CD which is one of the best practices in software development as it reduces the repetitive process of unit tests and the deployment of the software. For that, in src/test_app.py script, we test each function of the Fastapi webapp. All of these processes can be achieved using a new feature on github called github Actions. To create the CI/CD workflow, we need to create a .yml file on .github/workflows in which we have the intructions of our automated tests and deployment process.
 
 
-<p align="center">
- <img src="images/github_ci_cd.png" width="950" />
-</p>
 
 
 
