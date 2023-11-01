@@ -1,8 +1,6 @@
 import sys
-import os 
+import os
 
-
-#sys.path.append(os.path.abspath('..'))
 
 from fastapi.testclient import TestClient
 from PIL import Image
@@ -15,18 +13,17 @@ import pytest
 import torch
 
 
-
-
 # Client test
 client = TestClient(app)
+
 
 def test_main_page():
     response = client.get("/")
     assert response.status_code == 200
 
-# async_client = AsyncClient()
-# @pytest.mark.asyncio
-# def test_web_socket():
+    # async_client = AsyncClient()
+    # @pytest.mark.asyncio
+    # def test_web_socket():
     """
     In this function, we test the websocket connection used for
     streaming the models' output
@@ -34,13 +31,8 @@ def test_main_page():
     # response = await  async_client.get("/ws")
     # assert response.status_code == status.HTTP_200_OK
 
-
     # with client.websocket_connect('/ws') as websocket:
     #     pass
-
-
-
-
 
 
 def test_decision():
@@ -84,14 +76,9 @@ def test_decision():
     assert output == left_decision
 
 
-
-
-
-
 def test_acceuil():
     response = client.get("/Acceuil")
     assert response.status_code == 200
-
 
 
 def test_upload_file():
@@ -108,17 +95,9 @@ def test_upload_file():
     assert response.status_code == 200
 
 
-
-
 def test_download():
     """
     In this function, we download the result after generating it with test_upload_file
     """
     response = client.get("/download")
     assert response.status_code == 200
-
-
-
-
-
-
