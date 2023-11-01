@@ -1,15 +1,21 @@
-# Web scraping.
+# Smart tracking Camera using Yolo.
 Data scientist | [Anass MAJJI](https://www.linkedin.com/in/anass-majji-729773157/)
 ***
 
 ## :monocle_face: Description
-- In this project. </br>
+- In this project, we built a **Smart Human Tracking Camera** using Arduino and Yolov5 model. </br>
 
 
  
 
 ## :rocket: Repository Structure
 The repository contains the following files & directories:
+- **.github/workflows** : it contains the **.yml** file which details the instructions of our automated tests and deployment process.
+- **images** : this folder contains all images used on the README file.
+- **src** : in this folder we have : 
+	- **app** : code of the Fastapi webapp
+	- **test** : diffents Unit tests 
+	- **yolov5** : 
 - **Web_scrapping.ipynb:** This notebook contains all details about the webscraping steps using Scrapy framework.
 
 
@@ -22,7 +28,7 @@ In this section, we are going to demonstrate a walkthrough on building and deplo
 ## 1. Software section :
 
 ### 1.1 Fastapi webapp : 
-Before deploying the model on the Arduino board, we built a Fastapi webapp using HTML, CSS and JS. For the Client / Server connection we used the WebSocket protocol to send the real time yolov5's output as a streaming video. Bellow is the the home page of the webapp. As we can see, there are two main options :
+Before deploying the model on the Arduino board, we built a Fastapi webapp using HTML, CSS and JS. For the Client / Server connection we used the WebSocket protocol to send the real time Yolov5's output as a streaming video. Bellow is the the home page of the webapp. As we can see, there are two main options :
 
 
 <p align="center">
@@ -31,14 +37,14 @@ Before deploying the model on the Arduino board, we built a Fastapi webapp using
 
 **First option :**
 
-It consists in detecting humans from images. The user has to upload the image ("Click to upload" buttom) and then click on "Analyze" to get the output of the yolo model. Once the output image is generated, the user can download it by clicking on "Download".
+It consists in detecting humans from images. The user can upload the image ("Click to upload" buttom) and then click on "Analyze" to get the output of the Yolo model. Once the output image is generated, the user can download it by clicking on "Download".
 
 
 <p align="center">
  <img src="images/download.png" width="950" />
 </p>
 
-Bellow, an example of the input and generated image using yolov5 model.
+Bellow, an example of the input and generated image using Yolov5 model.
 
 <p float="left">
   <img src="images/zidane.jpg" width="300" /> 
@@ -50,7 +56,7 @@ Bellow, an example of the input and generated image using yolov5 model.
 
 **Second option :**
 
-With the second option, we use the yolov5 model to detect and track humans using camera. The video streaming will start after clicking on "start" button. Here, we have two choices, we can use either a webcom or an external USB camera.
+With the second option, we use the Yolov5 model to detect and track humans using camera. The video streaming will start after clicking on "start" button. Here, we have two choices, we can use either a webcom or an external USB camera.
 
 The video streaming is stopped afer clicking on "Stop" button or on "Exit WebCom" button to shut down the WebSocket connection. 
 
@@ -71,7 +77,7 @@ The video streaming is stopped afer clicking on "Stop" button or on "Exit WebCom
 
 ## 2. Hardware part : 
 
-We deploy the yolov5 model using Arduino UNO card. For that, we need : 
+We deploy the Yolov5 model using Arduino UNO card. For that, we need : 
 
 - 2 Servo motors : used for vertical and horizontal rotation with a 120 rotation degree.
 <p align="center">
