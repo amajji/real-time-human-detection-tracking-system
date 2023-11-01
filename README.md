@@ -30,6 +30,7 @@ Before deploying the model on the Arduino board, we built a Fastapi webapp using
 </p>
 
 **First option :**
+
 It consists in detecting humans from images. The user has to upload the image ("Click to upload" buttom) and then click on "Analyze" to get the output of the yolo model. Once the output image is generated, the user can download it by clicking on "Download".
 
 
@@ -48,6 +49,7 @@ Bellow, an exmaple of the input image and generated one using yolov5 model.
   
 
 **Second option :**
+
 With the second option, we use the yolov5 model to detect and track humans using camera. The video streaming will start after clicking on "start" button. Here, we have two choices, we can use either a webcom or an external USB camera.
 
 The video streaming is stopped afer clicking on "Stop" button or on "Exit WebCom" button to shut down the WebSocket connection. 
