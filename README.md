@@ -48,7 +48,7 @@ Bellow, an example of the input and generated image using yolov5 model.
 
   
 
-**Second option :**
+**<u> Second option :</u>**
 
 With the second option, we use the yolov5 model to detect and track humans using camera. The video streaming will start after clicking on "start" button. Here, we have two choices, we can use either a webcom or an external USB camera.
 
