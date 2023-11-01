@@ -38,7 +38,7 @@ It consists in detecting humans from images. The user has to upload the image ("
  <img src="images/download.png" width="950" />
 </p>
 
-Bellow, an exmaple of the input image and generated one using yolov5 model.
+Bellow, an example of the input and generated image using yolov5 model.
 
 <p float="left">
   <img src="images/zidane.jpg" width="300" /> 
@@ -113,7 +113,7 @@ We deploy the yolov5 model using Arduino UNO card. For that, we need :
 
 
 
-* To controll 2 servo-motors using arduino Card, we need first to  
+* To controll 2 servo-motors using arduino Card, we need first to download and install an [Arduino IDE](https://www.arduino.cc/en/software) and then upload the Arduino code on the Arduino UNO Card (you can find it on my folder src/arduino/arduino_2_motors.ino)
 
 
 
