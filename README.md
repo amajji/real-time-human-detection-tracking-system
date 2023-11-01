@@ -18,8 +18,8 @@ The repository contains the following files & directories:
 
 ## :chart_with_upwards_trend: Demontration
 
-In this section, we are going to demonstrate a walkthrough on building and deployment of a Real-time Human Detection camera using Yolov5 model and Arduino UNO. We can split this project into two parts : 
-- Software part : Before deploying the model on the Arduino board, we built a Fastapi webapp using HTML, CSS and JS. For the Client / Server connection we used the WebSocket protocol to send the real time yolov5's output as a streaming video. Bellow is the the home page of the webapp, as we can see, there are two main options :
+In this section, we are going to demonstrate a walkthrough on building and deployment of a Real-time Human Detection and tracking system using Yolov5 model and Arduino UNO. We can split this project into two parts : 
+- Software part : Before deploying the model on the Arduino board, we built a Fastapi webapp using HTML, CSS and JS. For the Client / Server connection we used the WebSocket protocol to send the real time yolov5's output as a streaming video. Bellow is the the home page of the webapp. As we can see, there are two main options :
 
 
 <p align="center">
@@ -27,7 +27,7 @@ In this section, we are going to demonstrate a walkthrough on building and deplo
 </p>
 
 - First option :
-It consists in detecting humans from images. The user has to upload the image ("Click to upload" buttom) and then click on "Analyze" to get the output of the yolo model. Once the output image generated, the user can download it by clicking on "Download"
+It consists in detecting humans from images. The user has to upload the image ("Click to upload" buttom) and then click on "Analyze" to get the output of the yolo model. Once the output image is generated, the user can download it by clicking on "Download".
 
 
 <p align="center">
@@ -45,7 +45,9 @@ Bellow, an exmaple of the input image and generated one using yolov5 model.
   
 
 - Second option :
-It consists in dete
+With the second option, we use the yolov5 model to detect and track humans using camera. The video streaming will start after clicking on "start" button. Here, we have two choices, we can use either a webcom or an external USB camera.
+
+The video streaming is stopped afer clicking on "Stop" button or on "Exit WebCom" button to shut down the WebSocket connection. 
 
 <p align="center">
  <img src="images/stop_tracking.png" width="950" />
