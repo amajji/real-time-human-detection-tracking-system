@@ -37,9 +37,9 @@ It consists in detecting humans from images. The user has to upload the image ("
 Bellow, an exmaple of the input image and generated one using yolov5 model.
 
 <p float="left">
-  <img src="images/zidane.jpg" width="200" /> 
+  <img src="images/zidane.jpg" width="250" /> 
   <img src="images/yolov5_logo.png" width="200" /> 
-  <img src="images/resultat_finale.jpg" width="200" /> 
+  <img src="images/resultat_finale.jpg" width="250" /> 
 </p>
 
   
