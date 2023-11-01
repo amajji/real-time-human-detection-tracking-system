@@ -38,7 +38,7 @@ Bellow, an exmaple of the input image and generated one using yolov5 model.
 
 <p float="left">
   <img src="images/zidane.jpg" width="350" /> 
-  <img src="images/yolov5_logo.png" width="200" /> 
+  <img src="images/yolov5_logo.png" width="150" /> 
   <img src="images/resultat_finale.jpg" width="350" /> 
 </p>
 
