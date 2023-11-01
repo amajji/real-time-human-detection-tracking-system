@@ -113,7 +113,7 @@ We deploy the yolov5 model using Arduino UNO card. For that, we need :
 
 
 
-* To controll 2 servo-motors using arduino Card, we need first to download and install an [Arduino IDE](https://www.arduino.cc/en/software) and then upload the Arduino code on the Arduino UNO Card (you can find it on my folder src/arduino/arduino_2_motors.ino)
+* To controll 2 servo-motors using arduino Card, we need first to download and install an [Arduino IDE](https://www.arduino.cc/en/software) and then upload the Arduino code on the Arduino UNO Card (you can find it on my folder **src/arduino/arduino_2_motors.ino**)
 
 
 
