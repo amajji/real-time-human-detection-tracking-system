@@ -76,7 +76,7 @@ The video streaming is stopped afer clicking on "Stop" button or on "Exit WebCom
 
 
 
-## 2. Hardware part : 
+## 2. Hardware section : 
 
 We deploy the Yolov5 model using Arduino UNO card. For that, we need : 
 
@@ -125,7 +125,7 @@ We deploy the Yolov5 model using Arduino UNO card. For that, we need :
 Once done, we set up the configuration (shown bellow) to connect all thoses objects mentionned above with the laptop.
 
 <p align="center">
- <img src="images/2_servomotorcontrol_arduino.jpg" width="450" />
+ <img src="images/2_servomotorcontrol_arduino.jpg" width="550" />
 </p>
 
 
