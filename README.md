@@ -48,7 +48,7 @@ Bellow, an example of the input and generated image using yolov5 model.
 
   
 
-**<u> Second option :</u>**
+**Second option :**
 
 With the second option, we use the yolov5 model to detect and track humans using camera. The video streaming will start after clicking on "start" button. Here, we have two choices, we can use either a webcom or an external USB camera.
 
@@ -115,8 +115,11 @@ We deploy the yolov5 model using Arduino UNO card. For that, we need :
 
 * To controll 2 servo-motors using arduino Card, we need first to download and install an [Arduino IDE](https://www.arduino.cc/en/software) and then upload the Arduino code on the Arduino UNO Card (you can find it on my folder **src/arduino/arduino_2_motors.ino**)
 
-Once [done], 
+Once done, we set up the configuration (shown bellow) to connect all thoses objects mentionned above with the laptop.
 
+<p align="center">
+ <img src="images/2_servomotorcontrol_arduino.jpg" width="350" />
+</p>
 
 
 
