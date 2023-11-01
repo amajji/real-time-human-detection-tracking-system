@@ -13,10 +13,11 @@ The repository contains the following files & directories:
 - **.github/workflows** : it contains the **.yml** file which details the instructions of our automated tests and deployment process.
 - **images** : this folder contains all images used on the README file.
 - **src** : in this folder we have : 
-	- **app** : code of the Fastapi webapp
-	- **test** : diffents Unit tests 
-	- **yolov5** : 
-- **Web_scrapping.ipynb:** This notebook contains all details about the webscraping steps using Scrapy framework.
+	- **app** : code of the Fastapi webapp.
+	- **test** : diffents Unit tests.
+	- **yolov5** : DL model used for human detection.
+
+- **requirements.txt:** all the packages used in this project.
 
 
 
