@@ -38,8 +38,12 @@ Bellow, an exmaple of the input image and generated one using yolov5 model.
 
 <p float="left">
   <img src="images/zidane.jpg" width="350" /> 
+  <img src="images/yolov5_logo.png" width="350" /> 
   <img src="images/resultat_finale.jpg" width="350" /> 
 </p>
+
+  
+
 - Second option :
 It consists in dete
 
@@ -94,6 +98,8 @@ It consists in dete
 	  <img src="images/7.jpg" width="350" /> 
 	  <img src="images/8.jpg" width="350" /> 
 	</p>
+
+
 
 
 * To controll 2 servo-motors using arduino Card, we need first to  
