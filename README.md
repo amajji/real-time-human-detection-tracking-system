@@ -67,7 +67,7 @@ In this section, we are going to demonstrate a walkthrough on building and deplo
 
 
 <p align="center">
- <img src="images/github_ci_cd.png" width="800" />
+ <img src="images/github_ci_cd.png" width="900" />
 </p>
 
 
