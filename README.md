@@ -19,14 +19,17 @@ The repository contains the following files & directories:
 ## :chart_with_upwards_trend: Demontration
 
 In this section, we are going to demonstrate a walkthrough on building and deployment of a Real-time Human Detection and tracking system using Yolov5 model and Arduino UNO. We can split this project into two parts : 
-- Software part : Before deploying the model on the Arduino board, we built a Fastapi webapp using HTML, CSS and JS. For the Client / Server connection we used the WebSocket protocol to send the real time yolov5's output as a streaming video. Bellow is the the home page of the webapp. As we can see, there are two main options :
+## 1. Software section :
+
+### 1.1 Fastapi webapp : 
+Before deploying the model on the Arduino board, we built a Fastapi webapp using HTML, CSS and JS. For the Client / Server connection we used the WebSocket protocol to send the real time yolov5's output as a streaming video. Bellow is the the home page of the webapp. As we can see, there are two main options :
 
 
 <p align="center">
  <img src="images/acceuil.png" width="950" />
 </p>
 
-- First option :
+** First option : **
 It consists in detecting humans from images. The user has to upload the image ("Click to upload" buttom) and then click on "Analyze" to get the output of the yolo model. Once the output image is generated, the user can download it by clicking on "Download".
 
 
@@ -44,7 +47,7 @@ Bellow, an exmaple of the input image and generated one using yolov5 model.
 
   
 
-- Second option :
+** - Second option : **
 With the second option, we use the yolov5 model to detect and track humans using camera. The video streaming will start after clicking on "start" button. Here, we have two choices, we can use either a webcom or an external USB camera.
 
 The video streaming is stopped afer clicking on "Stop" button or on "Exit WebCom" button to shut down the WebSocket connection. 
@@ -52,6 +55,8 @@ The video streaming is stopped afer clicking on "Stop" button or on "Exit WebCom
 <p align="center">
  <img src="images/stop_tracking.png" width="950" />
 </p>
+
+### 1.2 Deployment using CI/CD : 
 
 - CI/CD : Finally, to deploy the project we use CI/CD which is one of the best practices in software development as it reduces the repetitive process of unit tests and the deployment of the software. For that, in src/test_app.py script, we test each function of the Fastapi webapp. All of these processes can be achieved using a new feature on github called github Actions. To create the CI/CD workflow, we need to create a .yml file on .github/workflows in which we have the instructions of our automated tests and deployment process.
 
@@ -62,7 +67,9 @@ The video streaming is stopped afer clicking on "Stop" button or on "Exit WebCom
 
 
 
-- Hardware part : We deploy the yolov5 model using Arduino UNO card. For that, we need : 
+## 2. Hardware part : 
+
+We deploy the yolov5 model using Arduino UNO card. For that, we need : 
 
 - 2 Servo motors : used for vertical and horizontal rotation with a 120 rotation degree.
 <p align="center">
