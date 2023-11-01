@@ -21,7 +21,7 @@ The repository contains the following files & directories:
 In this section, we are going to demonstrate a walkthrough on building and deployment of a Real-time Human Detection camera using Yolov5 model and Arduino UNO. We can split this project into two parts : 
 	- Software part : Before deploying the model on the camera, we built a Fastapi webapp using HTML, CSS and JS. For the Client / Server connection we used the WebSocket protocol to send the real time yolov5's output as a streaming video.
 
-* Hardware part : We deploy the yolov5 model using Arduino UNO card. For that, we need : 
+- Hardware part : We deploy the yolov5 model using Arduino UNO card. For that, we need : 
 - 2 Servo motors : used for vertical and horizontal rotation with a 120 rotation degree.
 <p align="center">
  <img src="images/1.jpg" width="350" />
@@ -70,6 +70,25 @@ In this section, we are going to demonstrate a walkthrough on building and deplo
  <img src="images/github_ci_cd.png" width="950" />
 </p>
 
+
+<p align="center">
+ <img src="images/acceuil.png" width="950" />
+</p>
+
+<p align="center">
+ <img src="images/download.png" width="950" />
+</p>
+
+
+<p float="left">
+  <img src="images/zidane.jpg" width="350" /> 
+  <img src="images/resultat_finale.jpg" width="350" /> 
+</p>
+
+
+<p align="center">
+ <img src="images/stop_web_app.png" width="950" />
+</p>
 
 
 
