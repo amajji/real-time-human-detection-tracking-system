@@ -118,7 +118,7 @@ We deploy the yolov5 model using Arduino UNO card. For that, we need :
 Once done, we set up the configuration (shown bellow) to connect all thoses objects mentionned above with the laptop.
 
 <p align="center">
- <img src="images/2_servomotorcontrol_arduino.jpg" width="350" />
+ <img src="images/2_servomotorcontrol_arduino.jpg" width="450" />
 </p>
 
 
