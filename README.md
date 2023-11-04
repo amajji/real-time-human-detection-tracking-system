@@ -38,7 +38,7 @@ Before deploying the model on the Arduino board, we built a Fastapi webapp using
 
 **First option :**
 
-It consists in detecting humans from images. The user can upload the image ("Click to upload" buttom) and then click on "Analyze" to get the output of the Yolo model. Once the output image is generated, the user can download it by clicking on "Download".
+It consists in detecting  humans from images. The user can upload the image ("Click to upload" buttom) and then click on "Analyze" to get the output of the Yolo model. Once the output image is generated, the user can download it by clicking on "Download".
 
 
 <p align="center">
