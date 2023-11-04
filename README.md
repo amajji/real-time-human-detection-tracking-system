@@ -12,7 +12,7 @@ Data scientist | [Anass MAJJI](https://www.linkedin.com/in/anass-majji-729773157
 The repository contains the following files & directories:
 - **.github/workflows** : it contains the **.yml** file which details the instructions of our automated tests and deployment process.
 - **images** : this folder contains all images used on the README file.
-- **src** : in this folder we haves : 
+- **src** : in this folder we have : 
 	- **app** : code of the Fastapi webapp.
 	- **test** : differents Unit tests.
 	- **yolov5** : DL model used for human detection.
