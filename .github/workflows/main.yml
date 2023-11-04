@@ -2,7 +2,7 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: [ dirty_work ]
+    branches: [ master ]
 jobs:
 
   continuous-integration:
