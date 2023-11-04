@@ -14,7 +14,7 @@ The repository contains the following files & directories:
 - **images** : this folder contains all images used on the README file.
 - **src** : in this folder we have : 
 	- **app** : code of the Fastapi webapp.
-	- **test** : diffents Unit tests.
+	- **test** : differents Unit tests.
 	- **yolov5** : DL model used for human detection.
 
 - **requirements.txt:** all the packages used in this project.
