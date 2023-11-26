@@ -25,7 +25,7 @@ The repository contains the following files & directories:
 
 ## :chart_with_upwards_trend: Demontration
 
-In this section, we are going to demonstrate a walkthrough on building and deployment of a Real-time Human Detection and tracking system using Yolov5 model and Arduino UNO. We can split this project into two parts : 
+In this section, we are going to demonstrate a walkthrough on building and deployment of a Real-time Human Detection and tracking system using Yolov5 model and Arduino UNO cards. We can split this project into two parts : 
 ## 1. Software section :
 
 ### 1.1 Fastapi webapp : 
@@ -57,7 +57,7 @@ Bellow, an example of the input and generated image using Yolov5 model.
 
 **Second option :**
 
-With the second option, we use the Yolov5 model to detect and track humans using camera. The video streaming will start after clicking on "start" button. Here, we have two choices, we can use either a webcom or an external USB camera.
+With the second option, we use the Yolov5 model to detect and track humans using camera. The video streaming will start after clicking on "start" button. Here, we have two choices, we can either use a webcom or an external USB camera.
 
 The video streaming is stopped afer clicking on "Stop" button or on "Exit WebCom" button to shut down the WebSocket connection. 
 
@@ -77,6 +77,9 @@ The video streaming is stopped afer clicking on "Stop" button or on "Exit WebCom
 
 
 ## 2. Hardware section : 
+
+
+### 2.1 Build a human tracking camera from scratch :
 
 We deploy the Yolov5 model using Arduino UNO card. For that, we need : 
 
@@ -120,7 +123,7 @@ We deploy the Yolov5 model using Arduino UNO card. For that, we need :
 
 
 
-* To controll 2 servo-motors using arduino Card, we need first to download and install an [Arduino IDE](https://www.arduino.cc/en/software) and then upload the Arduino code on the Arduino UNO Card (you can find it on my folder **src/arduino/arduino_2_motors.ino**)
+* To controll 2 servo-motors using arduino Card, we need first to download and install an [Arduino IDE](https://www.arduino.cc/en/software) and then upload the Arduino code on the Arduino UNO Card (you can find my code on **src/arduino/arduino_2_motors.ino**)
 
 Once done, we set up the configuration (shown bellow) to connect all thoses objects mentionned above with the laptop.
 
@@ -129,7 +132,7 @@ Once done, we set up the configuration (shown bellow) to connect all thoses obje
 </p>
 
 
-
+### 2.2 Vertical & horizontal rotations :
 
 In order to track a human using our camera, we need to define some rules based on the position of the person so that it can turn vertically and horizontally. 
 Let's assume that the person is on the left of the camera and the box around him (in red bellow) has coordinates ((X1,Y1) (X2, Y2)). We call it "main_box" : 
@@ -152,7 +155,7 @@ So for each vertical and horizontal rotation, we have 3 cases depending on the p
 </p>
 
 
-
+As mentioned in the formulas, we defined a 10% tolerance along the X and Y axis to better stabilize the camera.
 
 
 
