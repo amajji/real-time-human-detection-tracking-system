@@ -136,13 +136,13 @@ Let's assume that the person is on the left of the camera (in red bellow) and th
 
 
 <p align="center">
- <img src="images/cap_1.PNG" width="350" />
+ <img src="images/cap_1.PNG" />
 </p>
 
 So then, we compute a centred version of the box, we call it "centred_box" with coordinates ((X1_center, Y1_center) (X2_center, Y2_center)) as shown in the figure bellow :         
 
 <p align="center">
- <img src="images/cap_2.PNG" width="350" />
+ <img src="images/cap_2.PNG" />
 </p>
 
 Finally for each vertical and horizontal rotation, we have 3 cases depending on the position of "main_box" relative to its "centred_box" :  
