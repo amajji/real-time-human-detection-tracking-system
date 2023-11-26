@@ -148,7 +148,7 @@ So then, we compute a centred version of the box, we call it "centred_box" with 
 Finally for each vertical and horizontal rotation, we have 3 cases depending on the position of "main_box" relative to its "centred_box" :  
 
 <p align="center">
- <img src="images/decision.PNG" width="350" />
+ <img src="images/decision.PNG"  />
 </p>
 
 
