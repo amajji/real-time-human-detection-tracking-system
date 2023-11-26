@@ -105,8 +105,8 @@ We deploy the Yolov5 model using Arduino UNO card. For that, we need :
 
 - Connecting cables. 
 	<p float="left">
-	  <img src="images/2.jpg" width="350" />
-	  <img src="images/3.jpg" width="350" /> 
+	  <img src="images/2.jpg"  />
+	  <img src="images/3.jpg"  /> 
 	</p>
 
 
