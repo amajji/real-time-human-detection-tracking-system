@@ -131,21 +131,21 @@ Once done, we set up the configuration (shown bellow) to connect all thoses obje
 
 
 
-In order to track a human using our camera, we need to define some rules based on the position of the person. 
-Let's assume that the person is on the left of the camera (in red bellow) and the box around him has coordinates ((X1,Y1) (X2, Y2)). We call it "main_box" : 
+In order to track a human using our camera, we need to define some rules based on the position of the person so that it can turn vertically and horizontally. 
+Let's assume that the person is on the left of the camera and the box around him (in red bellow) has coordinates ((X1,Y1) (X2, Y2)). We call it "main_box" : 
 
 
 <p align="center">
  <img src="images/cap_1.PNG" />
 </p>
 
-So then, we compute a centred version of the box, we call it "centred_box" with coordinates ((X1_center, Y1_center) (X2_center, Y2_center)) as shown in the figure bellow :         
+And then, we compute a centred version of the box, we call it "centred_box" with coordinates ((X1_center, Y1_center) (X2_center, Y2_center)) as shown in the figure bellow :         
 
 <p align="center">
  <img src="images/cap_2.PNG" />
 </p>
 
-Finally for each vertical and horizontal rotation, we have 3 cases depending on the position of "main_box" relative to its "centred_box" :  
+So for each vertical and horizontal rotation, we have 3 cases depending on the position of the "main_box" relative to its "centred_box" :  
 
 <p align="center">
  <img src="images/decision.PNG"  />
