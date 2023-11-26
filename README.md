@@ -3,7 +3,7 @@ Data scientist | [Anass MAJJI](https://www.linkedin.com/in/anass-majji-729773157
 ***
 
 ## :monocle_face: Description
-- In this project, we built a **Smart Human Tracking Camera** using Arduino and Yolov5 model. </br>
+- In this project, we built a **Smart Human Tracking Camera** using **Arduino** and **Yolov5** model. </br>
 
 
  
